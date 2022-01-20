@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<GeneraslStore.MVC.Models.Transaction>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create new Transaction", "Transaction")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.CustomerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ListOfProducts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListOfProducts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TransactionId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TransactionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TransactionId })
+            </td>
+        </tr>
+    }
+</table>
